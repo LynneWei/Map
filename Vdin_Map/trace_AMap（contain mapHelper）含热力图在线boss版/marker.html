@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>marker</title>
+  <meta charset="utf-8">
+  <meta name="Author" content="Lynne">
+  <style type="text/css">
+    #container {
+      width: 1200px;
+      height: 700px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <!-- <script src="http://webapi.amap.com/js/marker.js"></script> -->
+   <script src="http://webapi.amap.com/maps?v=1.3&key=4a02ed48f4b1afabb52e6103e24595a0&plugin=AMap.AdvancedInfoWindow,AMap.Geocoder"></script>
+   <script type="text/javascript">
+   var provinces = [{
+  "name": "中🉐️宏泰",
+  "center": "116.405285,39.904989",
+  "type": 0,
+  "subDistricts": []
+}, {
+  "name": "天津市",
+  "center": "117.190182,39.125596",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "河北省",
+  "center": "114.502461,38.045474",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "山西省",
+  "center": "112.549248,37.857014",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "内蒙古自治区",
+  "center": "111.670801,40.818311",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "辽宁省",
+  "center": "123.429096,41.796767",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "吉林省",
+  "center": "125.3245,43.886841",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "黑龙江省",
+  "center": "126.642464,45.756967",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "上海市",
+  "center": "121.472644,31.231706",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "江苏省",
+  "center": "118.767413,32.041544",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "浙江省",
+  "center": "120.153576,30.287459",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "安徽省",
+  "center": "117.283042,31.86119",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "福建省",
+  "center": "119.306239,26.075302",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "江西省",
+  "center": "115.892151,28.676493",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "山东省",
+  "center": "117.000923,36.675807",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "河南省",
+  "center": "113.665412,34.757975",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "湖北省",
+  "center": "114.298572,30.584355",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "湖南省",
+  "center": "112.982279,28.19409",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "广东省",
+  "center": "113.280637,23.125178",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "广西壮族自治区",
+  "center": "108.320004,22.82402",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "海南省",
+  "center": "110.33119,20.031971",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "重庆市",
+  "center": "106.504962,29.533155",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "四川省",
+  "center": "104.065735,30.659462",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "贵州省",
+  "center": "106.713478,26.578343",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "云南省",
+  "center": "102.712251,25.040609",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "西藏自治区",
+  "center": "91.132212,29.660361",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "陕西省",
+  "center": "108.948024,34.263161",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "甘肃省",
+  "center": "103.823557,36.058039",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "青海省",
+  "center": "101.778916,36.623178",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "宁夏回族自治区",
+  "center": "106.278179,38.46637",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "新疆维吾尔自治区",
+  "center": "87.617733,43.792818",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "台湾省",
+  "center": "121.509062,25.044332",
+  "type": 2,
+  "subDistricts": []
+}, {
+  "name": "香港特別行政區",
+  "center": "114.173355,22.320048",
+  "type": 1,
+  "subDistricts": []
+}, {
+  "name": "澳門特別行政區",
+  "center": "113.54909,22.198951",
+  "type": 1,
+  "subDistricts": []
+}];
+  var map = new AMap.Map('container',{center: [116.397428, 39.90923],zoom:13});
+  var markers = [];   //provinces见Demo引用的JS文件
+  var kk;
+  for (var i = 0; i < provinces.length; i += 1) {
+    var marker;
+    if (provinces[i].type === 0) {
+      var icon = new AMap.Icon({
+        image: 'http://vdata.amap.com/icons/b18/1/2.png',
+        size: new AMap.Size(20, 20)
+      });
+      marker = new AMap.Marker({
+        icon: icon,
+        position: provinces[i].center.split(','),
+        offset: new AMap.Pixel(-12,-12),
+        zIndex: 101,
+        title: provinces[i].name,
+        map: map
+      });
+    } else {
+      marker = new AMap.Marker({
+        position: provinces[i].center.split(','),
+        title: provinces[i].name,
+        map: map
+      });
+      if (provinces[i].type === 2) {
+        var content= "<div class = 'taiwan'>宝岛台湾</div>";
+        baodao = new AMap.Marker({
+          content: content,
+          position: provinces[i].center.split(','),
+          title: provinces[i].name,
+          offset: new AMap.Pixel(0,0),
+          map: map
+        });
+      }
+    }
+    markers.push(marker);
+    var markersss = [];
+    var mapBounds = map.getBounds();
+    var sw = mapBounds.getSouthWest();
+    var ne = mapBounds.getNorthEast();
+    var lngSpan = Math.abs(sw.lng - ne.lng);
+    var latSpan = Math.abs(ne.lat - sw.lat);
+    for (var i = 0; i < 500; i++) {
+      var markerPosition = [sw.lng + lngSpan * (Math.random() * 1), ne.lat - latSpan * (Math.random() * 1)];
+      var markerss = new AMap.Marker({
+          position: markerPosition,
+          icon: "http://amappc.cn-hangzhou.oss-pub.aliyun-inc.com/lbs/static/img/marker.png",
+          offset: {x: -8,y: -34}
+      });
+      markersss.push(markerss);
+    } 
+    map.plugin(["AMap.MarkerClusterer"], function() {
+      cluster = new AMap.MarkerClusterer(map, markersss);
+    });
+    AMap.event.addListener(marker, 'click', function(event)
+      {
+        var currentLngLat = event.lnglat.getLng() + ',' + event.lnglat.getLat();
+        regeocoder(currentLngLat);
+        infoWindow.setPosition(event.lnglat);
+        infoWindow.setSize(300,300);
+        infoWindow.open(map, event.lnglat.location);
+      });
+    var infoWindow = new AMap.InfoWindow({offset:new AMap.Pixel(0,-30)});
+    for(var i= 0,marker;i<provinces.length;i++){
+      var marker=new AMap.Marker({
+        position:provinces[i].center.split(','),
+        map:map
+      });
+      marker.content = createContent(provinces[i].name);
+      marker.on('click',markerClick);
+      marker.emit('click',{target:marker});
+    }
+    function markerClick(e){
+      infoWindow.setContent(e.target.content);
+      infoWindow.open(map, e.target.getPosition());
+    }
+    function createContent(currentAddress)
+    {
+      var s = [];
+      s.push('<div class="info-content">'+"地址：" + currentAddress+'</div>');
+      return s.join("<br>");
+    }
+    map.setFitView();
+//           var infoWindow = new AMap.InfoWindow({});
+//     var geocoder = new AMap.Geocoder({
+//       radius: 1000,
+//       extensions: "all"
+//     });
+//   function regeocoder(GPSCoordinate)
+//     {
+//       geocoder.getAddress(
+//         GPSCoordinate,
+//         function(status, result)
+//         {
+//           if (status === 'complete' && result.info === 'OK')
+//           {
+//             var currentAddress = result.regeocode.formattedAddress;
+// console.info(result);
+//             infoWindow.setContent(createContent(currentAddress));
+//           }
+//         }
+//       );
+
+//       map.setFitView();
+//     }
+//     function createContent(currentAddress)
+//     {
+//       var s = [];
+
+//       s.push('<div class="info-content">'+"地址：" + currentAddress+'</div>');
+
+//       return s.join("<br>");
+//     }
+    }
+    map.setFitView();
+   </script>
+</body>
+</html>

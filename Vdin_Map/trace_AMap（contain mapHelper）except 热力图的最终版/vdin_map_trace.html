@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="LynneWei">
+    <title>routes</title>
+    <link rel="stylesheet" type="text/css" href="vdin_map_main.css">
+  </head>
+  <body>
+    <button id="showTrace">showTrace</button>
+    <div id="container"></div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=4a02ed48f4b1afabb52e6103e24595a0"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QTH7yV8vcSkvNOOWcZkZQGLmvyO52yZS&services=true"></script>
+
+    <script type="text/javascript" src="testing.js"></script>
+    <script type="text/javascript" src="vdin_map_helper.js"></script>
+    <script type="text/javascript" src="vdin_map_trace.js"></script>
+    <script type="text/javascript" src="vdin_map_bmapservice.js"></script>
+    <script type="text/javascript" src="vdin_map_amapservice.js"></script>
+    <script type="text/javascript">
+      var pointList = [
+        {
+          longitude: 116.368904,
+          latitude:  39.913423,
+          timestamp: Math.round(new Date().getTime()/1000)
+        },
+        {
+          longitude: 116.382122,
+          latitude:  39.901176,
+          timestamp: Math.round(new Date().getTime()/1000)
+        },
+        {
+          longitude: 116.387271,
+          latitude:  39.912501,
+          timestamp: Math.round(new Date().getTime()/1000)
+        },
+        {
+          longitude: 116.398258,
+          latitude:  39.904600,
+          timestamp: Math.round(new Date().getTime()/1000)
+        }
+      ];
+
+      $(function()
+      {
+        var center = Vdin.Map.Helper.caculateCenterPoint({
+          pointList: pointList
+        });
+
+        var mapService = Vdin.Map.AMapService.initialize({
+          zoom:         14,
+          mapContainer: "container",
+          center:       center,
+          zoomRange:    [3, 18]
+        });
+
+        Vdin.Map.Trace.initialize({
+          pointList:  pointList,
+          mapService: mapService,
+          color:      "#00dd00",
+          weight:     2,
+          zIndex:     12,
+          opacity:    0.7
+        });
+
+        Testing.initialize();
+      })
+    </script>
+  </body>
+</html>

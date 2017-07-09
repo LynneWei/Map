@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>testing</title>
+  <meta charset="utf-8">
+  <style type="text/css">
+    #div1 {
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+    }
+    #div2 {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+  
+</head>
+<body>
+  <div id="div1"></div>
+  <div id="div2"></div>
+  <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    $("#div2").bind("clickme",function()
+    {
+      alert(2);
+    });
+    $("#div1").click(function()
+    {
+      alert(1);
+      $("#div2").trigger("clickme");
+    })
+  </script>
+</body>
+</html>
